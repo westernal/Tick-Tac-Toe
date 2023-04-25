@@ -1,8 +1,12 @@
 import React from "react";
-import logo from "./logo.svg";
+import Board from "./components/board";
 
 function App() {
-  return <main></main>;
+  return (
+    <main className="min-h-screen  bg-slate-800 grid place-items-center">
+      <Board />
+    </main>
+  );
 }
 
 export default App;
