@@ -1,8 +1,7 @@
 import { useSelector } from "react-redux";
-import { Stats } from "../../types";
 
 const Ties = () => {
-  const numOfTies = useSelector((state: Stats) => state.ties);
+  const numOfTies = useSelector((state: any) => state.stats.ties);
 
   return (
     <div className="turn bg-slate-900 rounded-md shadow-2xl   text-white  p-1 pr-2 pl-2 text-center grid place-items-center cursor-context-menu">

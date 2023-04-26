@@ -1,8 +1,7 @@
 import { useSelector } from "react-redux";
-import { Stats } from "../../types";
 
 const XStats = () => {
-  const numOfWins = useSelector((state: Stats) => state.wins);
+  const numOfWins = useSelector((state: any) => state.stats.wins);
 
   return (
     <div className="turn bg-red-500 rounded-md shadow-2xl  text-white  p-1 pr-2 pl-2 text-center  grid place-items-center cursor-context-menu">

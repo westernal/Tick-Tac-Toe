@@ -1,27 +1,26 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { Stats } from "../../types";
+import { Game, Player } from "../../types";
 
-const initialState: Stats = {
-    wins: 0,
-    ties: 0,
-    loss: 0
+const O: Player = true;
+const X: Player = false;
+
+const initialState: Game = {
+    turn: O,
+    houses: ["","","","","","","","",""]
 }
 
 const gameSlice = createSlice({
     name: 'game',
     initialState,
     reducers: {
-        xWon: state => {
-            state.wins++
+        move: (state, action) => {
+            state.houses[action.payload] = state.turn;
         },
-        tied: state => {
-            state.ties++
-        },
-        oWon: state => {
-            state.loss++
-        },
+        changeTurn: state => {
+            state.turn = !state.turn
+        }
     }
 })
 
 export default gameSlice.reducer
-export const {xWon, tied, oWon} = gameSlice.actions
+export const {move, changeTurn} = gameSlice.actions
