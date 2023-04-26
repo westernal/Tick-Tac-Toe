@@ -7,8 +7,8 @@ const initialState: Stats = {
     loss: 0
 }
 
-const statsSlice = createSlice({
-    name: 'stats',
+const gameSlice = createSlice({
+    name: 'game',
     initialState,
     reducers: {
         xWon: state => {
@@ -23,5 +23,5 @@ const statsSlice = createSlice({
     }
 })
 
-export default statsSlice.reducer
-export const {xWon, tied, oWon} = statsSlice.actions
+export default gameSlice.reducer
+export const {xWon, tied, oWon} = gameSlice.actions
