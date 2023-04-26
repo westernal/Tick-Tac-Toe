@@ -1,10 +1,10 @@
 import React from "react";
-import Board from "./components/board";
+import Game from "./components/game";
 
 function App() {
   return (
     <main className="min-h-screen  bg-slate-800 grid place-items-center">
-      <Board />
+      <Game />
     </main>
   );
 }
