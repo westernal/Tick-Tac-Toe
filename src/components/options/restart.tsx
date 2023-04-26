@@ -1,6 +1,17 @@
+import { useDispatch } from "react-redux";
+import { restart } from "../../redux/slices/game";
+
 const Restart = () => {
+  const dispatch = useDispatch();
+  const restartGame = () => {
+    dispatch(restart());
+  };
+
   return (
-    <div className="restart bg-white shadow-2xl hover:bg-zinc-400 p-2 transition rounded-md cursor-pointer">
+    <div
+      className="restart bg-white shadow-2xl hover:bg-zinc-400 p-2 transition rounded-md cursor-pointer"
+      onClick={restartGame}
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"

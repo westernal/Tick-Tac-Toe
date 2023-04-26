@@ -1,20 +1,29 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import O from "../players/O";
 import X from "../players/X";
 import { useDispatch, useSelector } from "react-redux";
-import { changeTurn } from "../../redux/slices/game";
+import { changeTurn, move, restart } from "../../redux/slices/game";
+import canPlay from "../../functions/canPlay";
 
-const House = () => {
+const House = ({ number }: { number: number }) => {
   const [isO, SetIsO] = useState(false);
   const [isX, SetIsX] = useState(false);
   const dispatch = useDispatch();
-  const turn = useSelector((state: any) => state.game.turn);
+  const { turn, houses, reset } = useSelector((state: any) => state.game);
 
   const handleMove = () => {
-    if (turn) SetIsO(true);
-    else SetIsX(true);
-    dispatch(changeTurn());
+    if (canPlay(houses, number)) {
+      dispatch(move(number));
+      dispatch(changeTurn());
+      if (turn) SetIsO(true);
+      else SetIsX(true);
+    }
   };
+
+  useEffect(() => {
+    SetIsO(false);
+    SetIsX(false);
+  }, [reset]);
 
   return (
     <div
