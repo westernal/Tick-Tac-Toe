@@ -6,7 +6,6 @@ import { useEffect } from "react";
 import { restart } from "../../redux/slices/game";
 
 const Board = () => {
-  const numberOfHouses = [0, 1, 2, 3, 4, 5, 6, 7, 8];
   const dispatch = useDispatch();
   const { turn, houses } = useSelector((state: any) => state.game);
 
@@ -32,7 +31,7 @@ const Board = () => {
   }, [houses]);
   return (
     <section className="board p-5   grid grid-cols-3 gap-5">
-      {numberOfHouses.map((index: number) => {
+      {houses.map((element: any, index: number) => {
         return <House number={index} key={index} />;
       })}
     </section>
