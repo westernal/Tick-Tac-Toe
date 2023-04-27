@@ -5,7 +5,8 @@ import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
-    <main className="min-h-screen  bg-slate-800 grid place-items-center">
+    <>
+      {" "}
       <ToastContainer
         position="bottom-left"
         autoClose={2000}
@@ -17,8 +18,10 @@ function App() {
         pauseOnHover
         theme="colored"
       />
-      <Game />
-    </main>
+      <main className="min-h-screen  bg-slate-800 grid place-items-center">
+        <Game />
+      </main>
+    </>
   );
 }
 
