@@ -7,7 +7,7 @@ const X: Player = false;
 const initialState: Game = {
     turn: O,
     houses: [1,1,1,1,1,1,1,1,1],
-    reset: false
+    gameOver: false
 }
 
 const gameSlice = createSlice({
@@ -15,18 +15,25 @@ const gameSlice = createSlice({
     initialState,
     reducers: {
         move: (state, action) => {
-            state.houses[action.payload] = state.turn;
+            if (!state.gameOver) {
+                state.houses[action.payload] = state.turn;
+            }
         },
         changeTurn: state => {
-            state.turn = !state.turn
+            if (!state.gameOver) {
+                state.turn = !state.turn
+            }
         },
         restart: state => {
-            state.reset = !state.reset
+            state.gameOver = false
             state.turn = O
             state.houses = [1,1,1,1,1,1,1,1,1]
+        },
+        endGame: state => {
+            state.gameOver = true
         }
     }
 })
 
 export default gameSlice.reducer
-export const {move, changeTurn, restart} = gameSlice.actions
+export const {move, changeTurn, restart, endGame} = gameSlice.actions

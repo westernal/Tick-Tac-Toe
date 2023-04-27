@@ -9,5 +9,5 @@ export type Player = boolean;
 export type Game = {
   turn: Player;
   houses: Player[] | number[];
-  reset: boolean;
+  gameOver: boolean;
 };
